@@ -41,7 +41,7 @@ class _Firstpage extends State<Firstpage> {
                     onPressed: () {
                       Navigator.pushNamed(context, '/second', arguments: num1);
                     },
-                    label: const Text("พยัญชนะ"),
+                    label: const Text("คำศัพท์"),
                   ),
                 ),
                 SizedBox(
@@ -78,7 +78,7 @@ class _Firstpage extends State<Firstpage> {
                       Navigator.pushNamed(context, '/flashcard',
                           arguments: num2);
                     },
-                    label: const Text("คำศัพท์"),
+                    label: const Text("Flashcard"),
                   ),
                 ),
               ],

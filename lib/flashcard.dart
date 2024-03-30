@@ -115,7 +115,8 @@ class _FlashcardPageState extends State<FlashcardPage> {
               ),
             );
           }
-          if (snapshot.connectionState == ConnectionState.active) {
+          if (snapshot.connectionState == ConnectionState.active ||
+              _flashcards.isEmpty) {
             return Scaffold(
               body: Center(
                 child: CircularProgressIndicator(),

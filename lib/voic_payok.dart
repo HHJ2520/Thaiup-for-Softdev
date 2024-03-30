@@ -171,7 +171,7 @@ class _QuizPageState extends State<voic_payok> {
 
 // ignore: must_be_immutable
 class Quiz extends StatelessWidget {
-  final String quq = 'รูปภาพที่เห็นนี้คืออะไร';
+  final String quq = 'ได้ยินว่าอะไร';
   String? resultText;
   final Color? con;
   String buto = "Submit";
@@ -333,14 +333,16 @@ class Quiz extends StatelessWidget {
                     key: ValueKey('submit'),
                     onPressed: () {
                       Future.delayed(Duration(seconds: 1), () {
-                        if (ans as String == show as String) {
+                        if (questions[questionIndex]['aunwer'] as String ==
+                            show as String) {
                           answerQuestion(1);
                         } else {
                           answerQuestion(0);
                         }
                       });
 
-                      colorc(ans as String == show as String
+                      colorc(questions[questionIndex]['aunwer'] as String ==
+                              show as String
                           ? Color.fromARGB(255, 77, 255, 0)
                           : Color.fromARGB(255, 255, 0, 0));
                     },
