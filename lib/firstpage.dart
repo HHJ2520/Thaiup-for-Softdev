@@ -83,6 +83,25 @@ class _Firstpage extends State<Firstpage> {
                 ),
               ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/aboutpage');
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 3, horizontal: 20),
+                    child: Image.asset(
+                      'image/ques.png',
+                      width: 50,
+                      height: 50,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
