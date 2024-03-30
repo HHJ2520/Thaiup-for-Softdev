@@ -137,7 +137,6 @@ void main() {
           await driver!.tap(find.byValueKey('choice_sortsen1'));
           await driver!.tap(find.byValueKey('choice_sortsen0'));
           await driver!.tap(find.byValueKey('choice_sortsen2'));
-
           await driver!.tap(find.byValueKey('submit'));
         }
         await driver!.tap(find.byValueKey('restartquiz'));
