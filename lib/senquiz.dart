@@ -335,14 +335,14 @@ class Quiz extends StatelessWidget {
                     key: ValueKey('submitsort'),
                     onPressed: () {
                       Future.delayed(Duration(seconds: 1), () {
-                        if (ans as String == show as String) {
+                        if (questions[questionIndex]['ans'] as String == show as String) {
                           answerQuestion(1);
                         } else {
                           answerQuestion(0);
                         }
                       });
 
-                      colorc(ans as String == show as String
+                      colorc(questions[questionIndex]['ans'] as String == show as String
                           ? Color.fromARGB(255, 77, 255, 0)
                           : Color.fromARGB(255, 255, 0, 0));
                     },
