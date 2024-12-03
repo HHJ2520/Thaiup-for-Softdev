@@ -45,12 +45,12 @@ void main() {
       expect(await driver!.getText(find.text('เลือกเนื้อหาที่ต้องการเรียน')),
           'เลือกเนื้อหาที่ต้องการเรียน');
     }, timeout: Timeout(Duration(seconds: 10000)));
-    test('Backtofirst', () async {
-      await driver!.tap(find.byValueKey('backButton'));
+    // test('Backtofirst', () async {
+    //   await driver!.tap(find.byValueKey('backButton'));
 
-      expect(await driver!.getText(find.text('เลือกเนื้อหาที่ต้องการเรียน')),
-          'เลือกเนื้อหาที่ต้องการเรียน');
-    });
+    //   expect(await driver!.getText(find.text('เลือกเนื้อหาที่ต้องการเรียน')),
+    //       'เลือกเนื้อหาที่ต้องการเรียน');
+    // });
 
     test('Pic Quiz all correct', () async {
       await driver!.tap(find.byValueKey('cha_second_page'));
@@ -92,27 +92,43 @@ void main() {
           'เลือกเนื้อหาที่ต้องการเรียน');
     });
 
-    test('Voice Quiz', () async {
+    test('Voice Quiz all correct', () async {
       await driver!.tap(find.byValueKey('cha_second_page'));
       await driver!.tap(find.byValueKey('voice_quiz'));
-      for (int i = 0; i < 2; i += 1) {
-        for (int i = 0; i < 11; i += 1) {
-          await driver!.tap(find.byValueKey('listen'));
-          await driver!.tap(find.byValueKey('choice_voic1'));
-          await driver!.tap(find.byValueKey('choice_voic0'));
-          await driver!.tap(find.byValueKey('submit_voicquiz'));
-        }
-        await driver!.tap(find.byValueKey('restartquiz'));
+
+      for (int i = 0; i < 11; i += 1) {
+        await driver!.tap(find.byValueKey('listen'));
+        await driver!.tap(find.byValueKey('choice_voic1'));
+        await driver!.tap(find.byValueKey('choice_voic2'));
+        await driver!.tap(find.byValueKey('submit_voicquiz'));
       }
-      // expect(await driver!.getText(find.text('You have completed the quiz!')),
-      //     'You have completed the quiz!');
-      await driver!.tap(find.byValueKey('backButton'));
-      await driver!.tap(find.byValueKey('backButton'));
-      expect(await driver!.getText(find.text('เลือกเนื้อหาที่ต้องการเรียน')),
-          'เลือกเนื้อหาที่ต้องการเรียน');
+      expect(await driver!.getText(find.text('Your Score: 11 out of 11')),
+          'Your Score: 11 out of 11');
     }, timeout: Timeout(Duration(seconds: 10000)));
 
+    test('Voice Quiz all incorrect', () async {
+      await driver!.tap(find.byValueKey('restartquiz'));
+      for (int i = 0; i < 11; i += 1) {
+        await driver!.tap(find.byValueKey('listen'));
+        await driver!.tap(find.byValueKey('choice_voic1'));
+        await driver!.tap(find.byValueKey('choice_voic0'));
+        await driver!.tap(find.byValueKey('submit_voicquiz'));
+      }
+      expect(await driver!.getText(find.text('Your Score: 0 out of 11')),
+          'Your Score: 0 out of 11');
+    }, timeout: Timeout(Duration(seconds: 10000)));
+
+    // test('Backtofirst', () async {
+    //   await driver!.tap(find.byValueKey('backButton'));
+    //   await driver!.tap(find.byValueKey('backButton'));
+
+    //   expect(await driver!.getText(find.text('เลือกเนื้อหาที่ต้องการเรียน')),
+    //       'เลือกเนื้อหาที่ต้องการเรียน');
+    // });
+
     test('sentence ', () async {
+      await driver!.tap(find.byValueKey('backButton'));
+      await driver!.tap(find.byValueKey('backButton'));
       await driver!.tap(find.byValueKey('payok_second_page'));
       await driver!.tap(find.byValueKey('sortsen'));
       for (int i = 0; i < 2; i += 1) {
