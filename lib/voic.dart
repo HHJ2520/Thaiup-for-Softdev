@@ -49,10 +49,10 @@ class _QuizPageState extends State<voic> {
       querySnapshot.docs.forEach((doc) {
         _questions.add((doc.data()));
       });
-      _questions.forEach((question) {
-        question["answers"].shuffle(random);
-      });
-      _questions.shuffle(random);
+      // _questions.forEach((question) {
+      //   question["answers"].shuffle(random);
+      // });
+      // _questions.shuffle(random);
       setState(() {});
     } catch (error) {
       print('Error fetching questions: $error');
